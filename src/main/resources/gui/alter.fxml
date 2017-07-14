@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane opacity="0.68" prefHeight="550.0" prefWidth="550.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="247.0" layoutY="60.0" text="СЛОВО" textFill="WHITE">
+         <font>
+            <Font name="Impact" size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="englishWord" layoutX="55.0" layoutY="100.0" prefHeight="25.0" prefWidth="444.0" styleClass="text-field" stylesheets="@../css/MyStyle.css" />
+      <Button fx:id="save" layoutX="383.0" layoutY="403.0" mnemonicParsing="false" styleClass="button_search" stylesheets="@../css/MyStyle.css" text="СОХРАНИТЬ" />
+      <Label layoutX="241.0" layoutY="173.0" text="ПЕРЕВОД" textFill="WHITE">
+         <font>
+            <Font name="Impact" size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="translation" layoutX="53.0" layoutY="214.0" prefHeight="25.0" prefWidth="444.0" styleClass="text-field" stylesheets="@../css/MyStyle.css" />
+      <Label layoutX="106.0" layoutY="291.0" text="ЧАСТЬ РЕЧИ" textFill="WHITE">
+         <font>
+            <Font name="Impact" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="351.0" layoutY="291.0" text="КАТЕГОРИЯ" textFill="WHITE">
+         <font>
+            <Font name="Impact" size="20.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="partOfSpeech" layoutX="55.0" layoutY="332.0" prefHeight="25.0" prefWidth="202.0" styleClass="combo-box" stylesheets="@../css/MyStyle.css" />
+      <ComboBox fx:id="category" layoutX="295.0" layoutY="332.0" prefHeight="25.0" prefWidth="202.0" styleClass="combo-box" stylesheets="@../css/MyStyle.css" />
+   </children>
+</AnchorPane>
