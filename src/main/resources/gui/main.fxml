@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.Cursor?>
-<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -13,11 +14,11 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" opacity="0.68" prefHeight="647.0" prefWidth="939.0" style="-fx-background-color: black;" stylesheets="@../css/MyStyle.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="guiContoller.MainController">
+<AnchorPane fx:id="tableDictionary" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" opacity="0.68" prefHeight="647.0" prefWidth="939.0" style="-fx-background-color: black;" stylesheets="@../css/MyStyle.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="guiContoller.MainController">
    <children>
       <Pane layoutX="665.0" prefHeight="647.0" prefWidth="274.0" styleClass="pane">
          <children>
-            <Label layoutX="62.0" layoutY="47.0" styleClass="button1" text="ДОБАВИТЬ СЛОВО" textFill="WHITE">
+            <Label fx:id="add_word" layoutX="62.0" layoutY="47.0" styleClass="button1" text="ДОБАВИТЬ СЛОВО" textFill="WHITE">
                <font>
                   <Font name="Impact" size="20.0" />
                </font>
@@ -28,7 +29,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Label>
-            <Label layoutX="62.0" layoutY="118.0" styleClass="button1" text="РЕДАКТИРОВАТЬ СЛОВО" textFill="WHITE">
+            <Label fx:id="alter_word" layoutX="62.0" layoutY="118.0" styleClass="button1" text="РЕДАКТИРОВАТЬ СЛОВО" textFill="WHITE">
                <font>
                   <Font name="Impact" size="20.0" />
                </font>
@@ -39,7 +40,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Label>
-            <Label layoutX="62.0" layoutY="194.0" styleClass="button1" text="УДАЛИТЬ СЛОВО" textFill="WHITE">
+            <Label fx:id="delete_word" layoutX="62.0" layoutY="194.0" styleClass="button1" text="УДАЛИТЬ СЛОВО" textFill="WHITE">
                <font>
                   <Font name="Impact" size="20.0" />
                </font>
@@ -50,7 +51,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Label>
-            <Label layoutX="59.0" layoutY="264.0" styleClass="button1" text="ДОБАВИТЬ КАТЕГОРИЮ" textFill="WHITE">
+            <Label fx:id="add_category" layoutX="59.0" layoutY="264.0" styleClass="button1" text="ДОБАВИТЬ КАТЕГОРИЮ" textFill="WHITE">
                <font>
                   <Font name="Impact" size="20.0" />
                </font>
@@ -61,7 +62,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Label>
-            <Label layoutX="59.0" layoutY="341.0" styleClass="button1" text="СРАВНИТЬ С ТЕКСТОМ" textFill="WHITE">
+            <Label fx:id="compare_with_text" layoutX="59.0" layoutY="341.0" styleClass="button1" text="СРАВНИТЬ С ТЕКСТОМ" textFill="WHITE">
                <font>
                   <Font name="Impact" size="20.0" />
                </font>
@@ -72,7 +73,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Label>
-            <Label layoutX="60.0" layoutY="419.0" styleClass="button1" text="ТЕСТИРОВАНИЕ" textFill="WHITE">
+            <Label fx:id="test" layoutX="60.0" layoutY="419.0" styleClass="button1" text="ТЕСТИРОВАНИЕ" textFill="WHITE">
                <font>
                   <Font name="Impact" size="20.0" />
                </font>
@@ -83,7 +84,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Label>
-            <Label layoutX="61.0" layoutY="495.0" styleClass="button1" text="ПЕЧАТЬ" textFill="WHITE">
+            <Label fx:id="print" layoutX="61.0" layoutY="495.0" styleClass="button1" text="ПЕЧАТЬ" textFill="WHITE">
                <font>
                   <Font name="Impact" size="20.0" />
                </font>
@@ -124,7 +125,7 @@
                </image></ImageView>
          </children>
       </Pane>
-      <TableView layoutX="44.0" layoutY="240.0" prefHeight="366.0" prefWidth="588.0" styleClass="column-header" AnchorPane.bottomAnchor="35.0" AnchorPane.topAnchor="240.0">
+      <TableView layoutX="44.0" layoutY="282.0" prefHeight="366.0" prefWidth="588.0" styleClass="column-header" AnchorPane.bottomAnchor="35.0" AnchorPane.topAnchor="240.0">
         <columns>
           <TableColumn minWidth="30.0" prefWidth="150.0" text="Слово" />
           <TableColumn minWidth="30.0" prefWidth="150.0" text="Перевод" />
@@ -132,18 +133,8 @@
             <TableColumn prefWidth="140.0" text="Категория" />
         </columns>
       </TableView>
-      <TextField layoutX="44.0" layoutY="68.0" prefHeight="31.0" prefWidth="588.0" styleClass="text-field" stylesheets="@../css/MyStyle.css" />
-      <ChoiceBox layoutX="45.0" layoutY="167.0" prefHeight="30.0" prefWidth="266.0" styleClass="combo-box">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </ChoiceBox>
-      <ChoiceBox layoutX="368.0" layoutY="167.0" prefHeight="31.0" prefWidth="266.0" styleClass="combo-box">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </ChoiceBox>
-      <Label layoutX="273.0" layoutY="31.0" text="ВВЕДИТЕ СЛОВО" textFill="WHITE">
+      <TextField fx:id="englishWord" layoutX="45.0" layoutY="44.0" prefHeight="31.0" prefWidth="266.0" styleClass="text-field" stylesheets="@../css/MyStyle.css" />
+      <Label layoutX="115.0" layoutY="14.0" text="ВВЕДИТЕ СЛОВО" textFill="WHITE">
          <font>
             <Font name="Impact" size="20.0" />
          </font>
@@ -151,7 +142,7 @@
             <DropShadow height="63.37" radius="27.005" width="46.65" />
          </effect>
       </Label>
-      <Label layoutX="130.0" layoutY="128.0" text="ЧАСТЬ РЕЧИ" textFill="WHITE">
+      <Label layoutX="131.0" layoutY="96.0" text="ЧАСТЬ РЕЧИ" textFill="WHITE">
          <font>
             <Font name="Impact" size="20.0" />
          </font>
@@ -159,7 +150,7 @@
             <DropShadow height="63.37" radius="27.005" width="46.65" />
          </effect>
       </Label>
-      <Label layoutX="456.0" layoutY="128.0" text="КАТЕГОРИЯ" textFill="WHITE">
+      <Label layoutX="456.0" layoutY="96.0" text="КАТЕГОРИЯ" textFill="WHITE">
          <font>
             <Font name="Impact" size="20.0" />
          </font>
@@ -167,5 +158,17 @@
             <DropShadow height="63.37" radius="27.005" width="46.65" />
          </effect>
       </Label>
+      <Button fx:id="search" layoutX="513.0" layoutY="175.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="121.0" styleClass="button_search" stylesheets="@../css/MyStyle.css" text="Поиск" />
+      <TextField fx:id="translation" layoutX="368.0" layoutY="44.0" prefHeight="31.0" prefWidth="266.0" styleClass="text-field" stylesheets="@../css/MyStyle.css" />
+      <Label layoutX="427.0" layoutY="14.0" text="ВВЕДИТЕ ПЕРЕВОД" textFill="WHITE">
+         <font>
+            <Font name="Impact" size="20.0" />
+         </font>
+         <effect>
+            <DropShadow height="63.37" radius="27.005" width="46.65" />
+         </effect>
+      </Label>
+      <ComboBox fx:id="partOfSpeech" layoutX="45.0" layoutY="123.0" prefHeight="31.0" prefWidth="266.0" styleClass="combo-box" stylesheets="@../css/MyStyle.css" />
+      <ComboBox fx:id="category" layoutX="368.0" layoutY="123.0" prefHeight="31.0" prefWidth="266.0" styleClass="combo-box" stylesheets="@../css/MyStyle.css" />
    </children>
 </AnchorPane>
