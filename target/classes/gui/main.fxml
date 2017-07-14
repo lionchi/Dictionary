@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" opacity="0.68" prefHeight="647.0" prefWidth="939.0" style="-fx-background-color: black;" stylesheets="@../css/MyStyle.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="guiContoller.MainController">
+   <children>
+      <Pane layoutX="665.0" prefHeight="647.0" prefWidth="274.0" styleClass="pane">
+         <children>
+            <Label layoutX="62.0" layoutY="47.0" styleClass="button1" text="ДОБАВИТЬ СЛОВО" textFill="WHITE">
+               <font>
+                  <Font name="Impact" size="20.0" />
+               </font>
+               <effect>
+                  <DropShadow height="63.37" radius="27.005" width="46.65" />
+               </effect>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Label>
+            <Label layoutX="62.0" layoutY="118.0" styleClass="button1" text="РЕДАКТИРОВАТЬ СЛОВО" textFill="WHITE">
+               <font>
+                  <Font name="Impact" size="20.0" />
+               </font>
+               <effect>
+                  <DropShadow height="63.37" radius="27.005" width="46.65" />
+               </effect>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Label>
+            <Label layoutX="62.0" layoutY="194.0" styleClass="button1" text="УДАЛИТЬ СЛОВО" textFill="WHITE">
+               <font>
+                  <Font name="Impact" size="20.0" />
+               </font>
+               <effect>
+                  <DropShadow height="63.37" radius="27.005" width="46.65" />
+               </effect>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Label>
+            <Label layoutX="59.0" layoutY="264.0" styleClass="button1" text="ДОБАВИТЬ КАТЕГОРИЮ" textFill="WHITE">
+               <font>
+                  <Font name="Impact" size="20.0" />
+               </font>
+               <effect>
+                  <DropShadow height="63.37" radius="27.005" width="46.65" />
+               </effect>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Label>
+            <Label layoutX="59.0" layoutY="341.0" styleClass="button1" text="СРАВНИТЬ С ТЕКСТОМ" textFill="WHITE">
+               <font>
+                  <Font name="Impact" size="20.0" />
+               </font>
+               <effect>
+                  <DropShadow height="63.37" radius="27.005" width="46.65" />
+               </effect>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Label>
+            <Label layoutX="60.0" layoutY="419.0" styleClass="button1" text="ТЕСТИРОВАНИЕ" textFill="WHITE">
+               <font>
+                  <Font name="Impact" size="20.0" />
+               </font>
+               <effect>
+                  <DropShadow height="63.37" radius="27.005" width="46.65" />
+               </effect>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Label>
+            <Label layoutX="61.0" layoutY="495.0" styleClass="button1" text="ПЕЧАТЬ" textFill="WHITE">
+               <font>
+                  <Font name="Impact" size="20.0" />
+               </font>
+               <effect>
+                  <DropShadow height="63.37" radius="27.005" width="46.65" />
+               </effect>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Label>
+            <ImageView fx:id="imageEditWord" fitHeight="40.0" fitWidth="38.0" layoutX="10.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/Редактировать%20свойство.png" />
+               </image></ImageView>
+            <ImageView fx:id="imageRemoveWord" fitHeight="40.0" fitWidth="38.0" layoutX="10.0" layoutY="187.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/Удалить%20свойство.png" />
+               </image></ImageView>
+            <ImageView fx:id="imageAddCategory" fitHeight="40.0" fitWidth="38.0" layoutX="10.0" layoutY="257.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/Добавить%20список.png" />
+               </image></ImageView>
+            <ImageView fx:id="imageCompare" fitHeight="40.0" fitWidth="38.0" layoutX="10.0" layoutY="334.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/Настройки.png" />
+               </image></ImageView>
+            <ImageView fx:id="imageTest" fitHeight="40.0" fitWidth="38.0" layoutX="10.0" layoutY="412.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/Кошка.png" />
+               </image></ImageView>
+            <ImageView fx:id="imagePrinting" fitHeight="40.0" fitWidth="38.0" layoutX="10.0" layoutY="488.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/Печать%20.png" />
+               </image></ImageView>
+            <ImageView fx:id="imageAddWord" fitHeight="40.0" fitWidth="38.0" layoutX="10.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/Добавить%20свойство.png" />
+               </image></ImageView>
+         </children>
+      </Pane>
+      <TableView layoutX="44.0" layoutY="240.0" prefHeight="366.0" prefWidth="588.0" styleClass="column-header" AnchorPane.bottomAnchor="35.0" AnchorPane.topAnchor="240.0">
+        <columns>
+          <TableColumn minWidth="30.0" prefWidth="150.0" text="Слово" />
+          <TableColumn minWidth="30.0" prefWidth="150.0" text="Перевод" />
+            <TableColumn prefWidth="150.0" text="Часть речи" />
+            <TableColumn prefWidth="140.0" text="Категория" />
+        </columns>
+      </TableView>
+      <TextField layoutX="44.0" layoutY="68.0" prefHeight="31.0" prefWidth="588.0" styleClass="text-field" stylesheets="@../css/MyStyle.css" />
+      <ChoiceBox layoutX="45.0" layoutY="167.0" prefHeight="30.0" prefWidth="266.0" styleClass="combo-box">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ChoiceBox>
+      <ChoiceBox layoutX="368.0" layoutY="167.0" prefHeight="31.0" prefWidth="266.0" styleClass="combo-box">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ChoiceBox>
+      <Label layoutX="273.0" layoutY="31.0" text="ВВЕДИТЕ СЛОВО" textFill="WHITE">
+         <font>
+            <Font name="Impact" size="20.0" />
+         </font>
+         <effect>
+            <DropShadow height="63.37" radius="27.005" width="46.65" />
+         </effect>
+      </Label>
+      <Label layoutX="130.0" layoutY="128.0" text="ЧАСТЬ РЕЧИ" textFill="WHITE">
+         <font>
+            <Font name="Impact" size="20.0" />
+         </font>
+         <effect>
+            <DropShadow height="63.37" radius="27.005" width="46.65" />
+         </effect>
+      </Label>
+      <Label layoutX="456.0" layoutY="128.0" text="КАТЕГОРИЯ" textFill="WHITE">
+         <font>
+            <Font name="Impact" size="20.0" />
+         </font>
+         <effect>
+            <DropShadow height="63.37" radius="27.005" width="46.65" />
+         </effect>
+      </Label>
+   </children>
+</AnchorPane>
