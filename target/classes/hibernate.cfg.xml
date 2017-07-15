@@ -14,7 +14,7 @@
         <mapping class="hibernate.derictories.CategoryEntity"/>
         <mapping class="hibernate.derictories.MaintableEntity"/>
         <mapping class="hibernate.derictories.PartspeechEntity"/>
-
+        <mapping class="hibernate.views.FullmaintableEntity"/>
 
     </session-factory>
 </hibernate-configuration>

@@ -11,7 +11,7 @@ import javax.persistence.*;
  * Created by gavri on 14.07.2017.
  */
 @Entity
-@Table(name = "category", schema = "dictionary", catalog = "")
+@Table(name = "category", schema = "dictionary")
 public class CategoryEntity {
     private int idcategory;
     private String nameCategory;
@@ -47,6 +47,7 @@ public class CategoryEntity {
 
     public void setIdcategory(int idcategory) {
         this.idcategory = idcategory;
+        setIdCategoryP(idcategory);
     }
 
     @Basic
@@ -57,6 +58,7 @@ public class CategoryEntity {
 
     public void setNameCategory(String nameCategory) {
         this.nameCategory = nameCategory;
+        setNameCategoryP(nameCategory);
     }
 
     @Override
@@ -77,5 +79,10 @@ public class CategoryEntity {
         int result = idcategory;
         result = 31 * result + (nameCategory != null ? nameCategory.hashCode() : 0);
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return nameCategory;
     }
 }

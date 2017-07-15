@@ -17,86 +17,109 @@
     <table id="11" parent="2" name="category"/>
     <table id="12" parent="2" name="maintable"/>
     <table id="13" parent="2" name="partspeech"/>
-    <column id="14" parent="11" name="idcategory">
+    <view id="14" parent="2" name="fullmaintable">
+      <Comment>VIEW</Comment>
+    </view>
+    <column id="15" parent="11" name="idcategory">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="15" parent="11" name="name_category">
+    <column id="16" parent="11" name="name_category">
       <Position>2</Position>
       <DataType>text|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="16" parent="11" name="PRIMARY">
+    <key id="17" parent="11" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>idcategory</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="17" parent="12" name="idmaintable">
+    <column id="18" parent="12" name="idmaintable">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="18" parent="12" name="word">
+    <column id="19" parent="12" name="word">
       <Position>2</Position>
       <DataType>text|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="19" parent="12" name="transfer">
+    <column id="20" parent="12" name="transfer">
       <Position>3</Position>
       <DataType>text|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="20" parent="12" name="partspeech_idpartspeech">
+    <column id="21" parent="12" name="partspeech_idpartspeech">
       <Position>4</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="21" parent="12" name="category_idcategory">
+    <column id="22" parent="12" name="category_idcategory">
       <Position>5</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="22" parent="12" name="fk_maintable_category1_idx">
+    <index id="23" parent="12" name="fk_maintable_category1_idx">
       <ColNames>category_idcategory</ColNames>
     </index>
-    <index id="23" parent="12" name="fk_maintable_partspeech_idx">
+    <index id="24" parent="12" name="fk_maintable_partspeech_idx">
       <ColNames>partspeech_idpartspeech</ColNames>
     </index>
-    <key id="24" parent="12" name="PRIMARY">
+    <key id="25" parent="12" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>idmaintable</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="25" parent="12" name="fk_maintable_partspeech">
+    <foreign-key id="26" parent="12" name="fk_maintable_partspeech">
       <ColNames>partspeech_idpartspeech</ColNames>
       <RefSchemaName>dictionary</RefSchemaName>
       <RefTableName>partspeech</RefTableName>
       <RefColNames>idpartspeech</RefColNames>
     </foreign-key>
-    <foreign-key id="26" parent="12" name="fk_maintable_category1">
+    <foreign-key id="27" parent="12" name="fk_maintable_category1">
       <ColNames>category_idcategory</ColNames>
       <RefSchemaName>dictionary</RefSchemaName>
       <RefTableName>category</RefTableName>
       <RefColNames>idcategory</RefColNames>
     </foreign-key>
-    <column id="27" parent="13" name="idpartspeech">
+    <column id="28" parent="13" name="idpartspeech">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="28" parent="13" name="name_part">
+    <column id="29" parent="13" name="name_part">
       <Position>2</Position>
       <DataType>text|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="29" parent="13" name="PRIMARY">
+    <key id="30" parent="13" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>idpartspeech</ColNames>
       <Primary>1</Primary>
     </key>
+    <column id="31" parent="14" name="word">
+      <Position>1</Position>
+      <DataType>text|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="32" parent="14" name="transfer">
+      <Position>2</Position>
+      <DataType>text|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="33" parent="14" name="name_part">
+      <Position>3</Position>
+      <DataType>text|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="34" parent="14" name="name_category">
+      <Position>4</Position>
+      <DataType>text|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
   </database-model>
 </dataSource>

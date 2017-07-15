@@ -11,7 +11,7 @@ import javax.persistence.*;
  * Created by gavri on 14.07.2017.
  */
 @Entity
-@Table(name = "partspeech", schema = "dictionary", catalog = "")
+@Table(name = "partspeech", schema = "dictionary")
 public class PartspeechEntity {
     private int idpartspeech;
     private String namePart;
@@ -47,6 +47,7 @@ public class PartspeechEntity {
 
     public void setIdpartspeech(int idpartspeech) {
         this.idpartspeech = idpartspeech;
+        setIdPartSpeechP(idpartspeech);
     }
 
     @Basic
@@ -57,6 +58,7 @@ public class PartspeechEntity {
 
     public void setNamePart(String namePart) {
         this.namePart = namePart;
+        setNamePartP(namePart);
     }
 
     @Override
@@ -77,5 +79,10 @@ public class PartspeechEntity {
         int result = idpartspeech;
         result = 31 * result + (namePart != null ? namePart.hashCode() : 0);
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return namePart;
     }
 }

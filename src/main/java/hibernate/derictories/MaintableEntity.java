@@ -11,7 +11,7 @@ import javax.persistence.*;
  * Created by gavri on 14.07.2017.
  */
 @Entity
-@Table(name = "maintable", schema = "dictionary", catalog = "")
+@Table(name = "maintable", schema = "dictionary")
 public class MaintableEntity {
     private int idmaintable;
     private String word;
@@ -75,6 +75,7 @@ public class MaintableEntity {
 
     public void setIdmaintable(int idmaintable) {
         this.idmaintable = idmaintable;
+        setIdMainTablePP(idmaintable);
     }
 
     @Basic
@@ -85,6 +86,7 @@ public class MaintableEntity {
 
     public void setWord(String word) {
         this.word = word;
+        setWordP(word);
     }
 
     @Basic
@@ -95,6 +97,7 @@ public class MaintableEntity {
 
     public void setTransfer(String transfer) {
         this.transfer = transfer;
+        setTransferP(transfer);
     }
 
     @Basic
@@ -105,6 +108,7 @@ public class MaintableEntity {
 
     public void setPartspeech_idpartspeech(int partspeech_idpartspeech) {
         this.partspeech_idpartspeech = partspeech_idpartspeech;
+        setPartspeech_idpartspeechP(partspeech_idpartspeech);
     }
 
     @Basic
@@ -115,6 +119,7 @@ public class MaintableEntity {
 
     public void setCategory_idcategory(int category_idcategory) {
         this.category_idcategory = category_idcategory;
+        setCategory_idcategoryP(category_idcategory);
     }
 
     @Override

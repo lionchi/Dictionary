@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane opacity="0.68" prefHeight="550.0" prefWidth="550.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane opacity="0.68" prefHeight="550.0" prefWidth="550.0" style="-fx-background-color: black;" fx:controller="guiContoller.derictories.TestController" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label fx:id="task" layoutX="164.0" layoutY="133.0" text="НАПИШИТЕ ПЕРЕВОД СЛОВА" textFill="WHITE">
          <font>
