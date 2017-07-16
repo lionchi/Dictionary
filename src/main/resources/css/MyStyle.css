@@ -95,3 +95,11 @@
 
 }
 
+.progress_bar {
+-fx-accent: #0A7552;
+}
+
+.progress-bar > .track {
+  -fx-control-inner-background: #a1a1a1;
+}
+
