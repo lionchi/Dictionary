@@ -1,19 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane opacity="0.68" prefHeight="550.0" prefWidth="550.0" style="-fx-background-color: black;" fx:controller="guiContoller.derictories.AddCategoryController" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane opacity="0.68" prefHeight="550.0" prefWidth="550.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="guiContoller.derictories.AddCategoryController">
    <children>
-      <Label layoutX="159.0" layoutY="162.0" text="ВВЕДИТЕ НОВУЮ КАТЕГОРИЮ" textFill="WHITE">
+      <Label layoutX="157.0" layoutY="49.0" text="ВВЕДИТЕ НОВУЮ КАТЕГОРИЮ" textFill="WHITE">
          <font>
             <Font name="Impact" size="20.0" />
          </font>
       </Label>
-      <TextField fx:id="newCategory" layoutX="53.0" layoutY="214.0" prefHeight="25.0" prefWidth="444.0" styleClass="text-field" stylesheets="@../css/MyStyle.css" />
-      <Button fx:id="add" layoutX="391.0" layoutY="312.0" mnemonicParsing="false" styleClass="button_search" stylesheets="@../css/MyStyle.css" text="ДОБАВИТЬ" />
+      <TextField fx:id="newCategory" layoutX="51.0" layoutY="83.0" prefHeight="25.0" prefWidth="444.0" styleClass="text-field" stylesheets="@../css/MyStyle.css" />
+      <Button fx:id="add" layoutX="387.0" layoutY="124.0" mnemonicParsing="false" onAction="#OnAddCategory" styleClass="button_search" stylesheets="@../css/MyStyle.css" text="ДОБАВИТЬ" />
+      <Separator layoutX="19.0" layoutY="178.0" prefWidth="515.0" />
+      <Label layoutX="181.0" layoutY="195.0" text="ИЗМЕНИТЬ КАТЕГОРИЮ" textFill="WHITE">
+         <font>
+            <Font name="Impact" size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="nameEditCategory" layoutX="215.0" layoutY="228.0" prefHeight="25.0" prefWidth="283.0" styleClass="text-field" stylesheets="@../css/MyStyle.css" />
+      <Button fx:id="edit" layoutX="388.0" layoutY="273.0" mnemonicParsing="false" onAction="#OnEditCategory" styleClass="button_search" stylesheets="@../css/MyStyle.css" text="ИЗМЕНИТЬ" />
+      <Button fx:id="delete" layoutX="402.0" layoutY="432.0" mnemonicParsing="false" onAction="#OnDeleteCategory" styleClass="button_search" stylesheets="@../css/MyStyle.css" text="УДАЛИТЬ" />
+      <ComboBox fx:id="categoriesEdit" layoutX="53.0" layoutY="228.0" onAction="#OnCategoriesEdit" prefHeight="25.0" prefWidth="143.0" styleClass="combo-box" stylesheets="@../css/MyStyle.css" />
+      <Separator layoutX="16.0" layoutY="328.0" prefWidth="515.0" />
+      <ComboBox fx:id="categoriesDelete" layoutX="51.0" layoutY="384.0" prefHeight="25.0" prefWidth="444.0" styleClass="combo-box" stylesheets="@../css/MyStyle.css" />
+      <Label layoutX="186.0" layoutY="347.0" text="УДАЛИТЬ КАТЕГОРИЮ" textFill="WHITE">
+         <font>
+            <Font name="Impact" size="20.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

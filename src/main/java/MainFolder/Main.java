@@ -24,15 +24,14 @@ public class Main extends Application {
         loaderStage.centerOnScreen();
         loaderStage.show();
 
-
         new Thread(() -> {
             try {
+                HibernateSessionFactory.init();
+                GuiForm<AnchorPane, MainController> mainForm = new GuiForm<>("main.fxml");
+                AnchorPane root = mainForm.getParent();
+                MainController controller = mainForm.getController();
+                controller.setPrimaryStage(primaryStage);
                 Platform.runLater(() -> {
-                    HibernateSessionFactory.init();
-                    GuiForm<AnchorPane, MainController> mainForm = new GuiForm<>("main.fxml");
-                    AnchorPane root = mainForm.getParent();
-                    MainController controller = mainForm.getController();
-                    controller.setPrimaryStage(primaryStage);
                     loaderStage.close();
                     primaryStage.setScene(new Scene(root));
                     primaryStage.show();

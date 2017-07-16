@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane opacity="0.68" prefHeight="550.0" prefWidth="550.0" style="-fx-background-color: black;" fx:controller="guiContoller.derictories.AddWordController" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane opacity="0.68" prefHeight="550.0" prefWidth="550.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="guiContoller.derictories.AddWordController">
    <children>
       <Label layoutX="212.0" layoutY="59.0" text="ВВЕДИТЕ СЛОВО" textFill="WHITE">
          <font>
@@ -15,7 +15,7 @@
          </font>
       </Label>
       <TextField fx:id="englishWord" layoutX="55.0" layoutY="100.0" prefHeight="25.0" prefWidth="444.0" styleClass="text-field" stylesheets="@../css/MyStyle.css" />
-      <Button fx:id="add" layoutX="387.0" layoutY="405.0" mnemonicParsing="false" styleClass="button_search" stylesheets="@../css/MyStyle.css" text="ДОБАВИТЬ" />
+      <Button fx:id="add" layoutX="387.0" layoutY="405.0" mnemonicParsing="false" onAction="#OnAdd" styleClass="button_search" stylesheets="@../css/MyStyle.css" text="ДОБАВИТЬ" />
       <Label layoutX="202.0" layoutY="174.0" text="ВВЕДИТЕ ПЕРЕВОД" textFill="WHITE">
          <font>
             <Font name="Impact" size="20.0" />
@@ -32,7 +32,7 @@
             <Font name="Impact" size="20.0" />
          </font>
       </Label>
-      <ComboBox fx:id="partOfSpeech" layoutX="54.0" layoutY="332.0" prefHeight="25.0" prefWidth="202.0" styleClass="combo-box" stylesheets="@../css/MyStyle.css" />
-      <ComboBox fx:id="category" layoutX="297.0" layoutY="332.0" prefHeight="25.0" prefWidth="202.0" styleClass="combo-box" stylesheets="@../css/MyStyle.css" />
+      <ComboBox fx:id="partOfSpeechs" layoutX="54.0" layoutY="332.0" prefHeight="25.0" prefWidth="202.0" styleClass="combo-box" stylesheets="@../css/MyStyle.css" />
+      <ComboBox fx:id="categorys" layoutX="297.0" layoutY="332.0" prefHeight="25.0" prefWidth="202.0" styleClass="combo-box" stylesheets="@../css/MyStyle.css" />
    </children>
 </AnchorPane>
