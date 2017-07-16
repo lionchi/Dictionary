@@ -1,4 +1,5 @@
 
 .idea/*
+idea/workspace.xml
 .out/*
 src/main/resources/hibernate.cfg.xml
