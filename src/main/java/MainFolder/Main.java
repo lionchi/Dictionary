@@ -7,9 +7,12 @@ import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+
+import java.net.URL;
 
 public class Main extends Application {
 
@@ -54,6 +57,8 @@ public class Main extends Application {
     }
 
     private void configPrimary(Stage primaryStage) {
+        URL url = Main.class.getClassLoader().getResource("icons/iconsMain.png");
+        primaryStage.getIcons().addAll(new Image(url.toString()));
         primaryStage.setTitle("Словарь");
         primaryStage.setOnCloseRequest(event -> closeApp());
     }

@@ -1,6 +1,7 @@
 package guiContoller;
 
 import Helper.GuiForm;
+import MainFolder.Main;
 import guiContoller.derictories.*;
 import hibernate.HibernateSessionFactory;
 import hibernate.derictories.CategoryEntity;
@@ -10,21 +11,24 @@ import hibernate.views.FullmaintableEntity;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import net.sf.jasperreports.view.JasperViewer;
 import org.hibernate.Session;
 
-import java.io.IOException;
-import java.util.List;
-import java.util.Optional;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.io.*;
+import java.net.URL;
+import java.util.*;
 
 public class MainController implements IController {
     @FXML
@@ -74,7 +78,15 @@ public class MainController implements IController {
         add_category.setOnMouseClicked(event -> addCategoryClick());
         compare_with_text.setOnMouseClicked(event -> compareWithTextClick());
         test.setOnMouseClicked(event -> testClick());
-        print.setOnMouseClicked(event -> printClick());
+        print.setOnMouseClicked(event -> {
+            try {
+                printClick();
+            } catch (JRException e) {
+                e.printStackTrace();
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        });
         translation.textProperty().addListener((observable, oldValue, newValue) -> ChangeTranslation());
         englishWord.textProperty().addListener((observable, oldValue, newValue) -> ChangeEnglishWord());
         partOfSpeechs.setOnAction(event -> OnPartOfSpeech());
@@ -127,7 +139,7 @@ public class MainController implements IController {
     }
 
     private void alterWordClick() {
-        if(mainTable.getSelectionModel().getSelectedIndex()<0) {
+        if (mainTable.getSelectionModel().getSelectedIndex() < 0) {
             Alert alert = new Alert(Alert.AlertType.ERROR, "Выберите слово для изменения");
             alert.showAndWait();
             return;
@@ -157,13 +169,13 @@ public class MainController implements IController {
     }
 
     private void deleteWordClick() {
-        Alert alertApproval = new Alert(Alert.AlertType.WARNING,"Вы точно хотите удалить выбранное слово?");
+        Alert alertApproval = new Alert(Alert.AlertType.WARNING, "Вы точно хотите удалить выбранное слово?");
         alertApproval.setTitle("WARNING!");
         alertApproval.setHeaderText(null);
         ButtonType buttonTypeCancel = new ButtonType("Cancel", ButtonBar.ButtonData.CANCEL_CLOSE);
         alertApproval.getButtonTypes().addAll(buttonTypeCancel);
         Optional<ButtonType> result = alertApproval.showAndWait();
-        if(result.get() == ButtonType.OK) {
+        if (result.get() == ButtonType.OK) {
             int selectedIndex = mainTable.getSelectionModel().getSelectedIndex();
             if (selectedIndex < 0) {
                 Alert alert = new Alert(Alert.AlertType.ERROR, "Выберите слово для удаления");
@@ -201,11 +213,14 @@ public class MainController implements IController {
         Stage popUpStage = new Stage(StageStyle.UTILITY);
         GuiForm<AnchorPane, CompareWithTextController> form = new GuiForm<>("compare_with_text.fxml");
         AnchorPane pane = form.getParent();
+        CompareWithTextController compareWithTextController = form.getController();
         popUpStage.initModality(Modality.WINDOW_MODAL);
         popUpStage.initOwner(mainTable.getScene().getWindow());
         popUpStage.setTitle("Сравнение с текстом");
         Scene scene = new Scene(pane);
         popUpStage.setScene(scene);
+        compareWithTextController.setParentController(this);
+        compareWithTextController.setThisStage(popUpStage);
         popUpStage.showAndWait();
     }
 
@@ -221,8 +236,50 @@ public class MainController implements IController {
         popUpStage.showAndWait();
     }
 
-    private void printClick() {
-        //здесь будет работа с джава репорт
+    private void printClick() throws JRException, FileNotFoundException {
+        if (!translation.getText().isEmpty() || !englishWord.getText().isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Поля для слова и перевода должны быть пустые");
+            alert.showAndWait();
+            return;
+        }
+        if (categorys.getSelectionModel().getSelectedItem() != null && categorys.getSelectionModel().getSelectedIndex()!=0) {
+            JRBeanCollectionDataSource beanColDataSource = new JRBeanCollectionDataSource(filteredData);
+            WorkJR(categorys.getSelectionModel().getSelectedItem().getNameCategory(),beanColDataSource);
+        }
+        else if(partOfSpeechs.getSelectionModel().getSelectedItem() != null && partOfSpeechs.getSelectionModel().getSelectedIndex()!=0){
+            JRBeanCollectionDataSource beanColDataSource = new JRBeanCollectionDataSource(filteredData);
+            WorkJR(partOfSpeechs.getSelectionModel().getSelectedItem().getNamePart(),beanColDataSource);
+        }
+        else if((categorys.getSelectionModel().getSelectedItem() == null ||  categorys.getSelectionModel().getSelectedIndex()==0)||
+                (partOfSpeechs.getSelectionModel().getSelectedItem() == null || partOfSpeechs.getSelectionModel().getSelectedIndex()==0)){
+            JRBeanCollectionDataSource beanColDataSource = new JRBeanCollectionDataSource(mainTableModels);
+            WorkJR("Все слова",beanColDataSource);
+        }
+    }
+
+    private void WorkJR(String name,JRBeanCollectionDataSource beanCollectionDataSource) throws JRException, FileNotFoundException {
+        Map<String, Object> parameters = new HashMap<>();
+        parameters.put("DATE", new Date());
+        parameters.put("NameLable",name);
+
+        ClassLoader loader = getClass().getClassLoader();
+        InputStream reportName = new FileInputStream(new File(
+                loader.getResource("MyReport/VocabularyReport.jrxml").getFile()));
+
+        if(reportName!=null){
+            JasperDesign jasperDesign = JRXmlLoader.load(reportName);
+            JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
+            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport,
+                    parameters, beanCollectionDataSource);
+
+            JasperViewer jasperViewer = new JasperViewer(jasperPrint,false);
+            jasperViewer.setVisible(true);
+
+        }
+        else{
+            new Alert(Alert.AlertType.ERROR,"Вы не выбрали шаблон").showAndWait();
+            throw new JRException("Что то пошло не так");
+        }
     }
 
     public void update() {
@@ -233,10 +290,10 @@ public class MainController implements IController {
         session.close();
     }
 
-    public void updateCategories(){
+    public void updateCategories() {
         categoryModels.clear();
         Session session = HibernateSessionFactory.getSession();
-        categoryModels.addAll(session.createQuery("from CategoryEntity",CategoryEntity.class).getResultList());
+        categoryModels.addAll(session.createQuery("from CategoryEntity", CategoryEntity.class).getResultList());
         session.close();
         categorys.setItems(categoryModels);
     }
@@ -308,6 +365,5 @@ public class MainController implements IController {
     public void setPrimaryStage(Stage primaryStage) {
         this.primaryStage = primaryStage;
     }
-
 
 }

@@ -15,7 +15,7 @@
          </font>
       </Label>
       <TextField fx:id="answer" layoutX="53.0" layoutY="267.0" prefHeight="25.0" prefWidth="444.0" styleClass="text-field" stylesheets="@../css/MyStyle.css" />
-      <Button fx:id="next" layoutX="114.0" layoutY="360.0" mnemonicParsing="false" styleClass="button_search" stylesheets="@../css/MyStyle.css" text="СЛЕДУЮЩЕЕ" />
+      <Button fx:id="next" layoutX="114.0" layoutY="360.0" mnemonicParsing="false" onAction="#OnNext" styleClass="button_search" stylesheets="@../css/MyStyle.css" text="СЛЕДУЮЩЕЕ" />
       <Label fx:id="word" layoutX="269.0" layoutY="195.0" text="..." textFill="WHITE">
          <font>
             <Font name="Impact" size="20.0" />

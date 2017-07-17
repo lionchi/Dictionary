@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
+<!-- 2017-07-17T16:12:05 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="VocabularyReport" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="cacf1026-bc0a-40ad-8d67-71abc4f512e2">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<style name="style1" isDefault="true" pdfFontName="css/ARIAL.TTF" pdfEncoding="Cp1251"/>
+	<parameter name="DATE" class="java.util.Date"/>
+	<parameter name="NameLable" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="word" class="java.lang.String"/>
+	<field name="transfer" class="java.lang.String"/>
+	<field name="namePart" class="java.lang.String"/>
+	<field name="nameCategory" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="61" splitType="Stretch">
+			<textField>
+				<reportElement x="30" y="25" width="100" height="15" uuid="4c237a9c-e2b9-4f06-8c55-cbb15741b919"/>
+				<textFieldExpression><![CDATA[$P{DATE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="290" y="25" width="100" height="30" uuid="15613b34-8fa2-447e-b369-21fff013c5af"/>
+				<textElement>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{NameLable}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="240" y="25" width="50" height="30" uuid="e9100627-cd12-4930-8dcb-f981d46cfc0f"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<text><![CDATA[Категория]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="63" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="-5" y="30" width="100" height="18" uuid="ebcedcfb-2e8d-45f3-aa08-b53febcd717c"/>
+				<text><![CDATA[Слово]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="150" y="30" width="100" height="18" uuid="89c1bf3f-1839-4730-9977-67441633ab66"/>
+				<text><![CDATA[Перевод]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="310" y="30" width="100" height="17" uuid="1c2fe488-a242-4594-9789-82e1507de48a"/>
+				<text><![CDATA[Часть речь]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="460" y="29" width="100" height="19" uuid="42d6574a-05c1-41a0-b1fe-c998a0e8d97a"/>
+				<text><![CDATA[Категория]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="52" splitType="Stretch">
+			<textField>
+				<reportElement x="-5" y="10" width="100" height="20" uuid="f4254ba8-dfe2-4a90-a60d-01a23b8a56fd"/>
+				<textFieldExpression><![CDATA[$F{word}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="150" y="10" width="100" height="20" uuid="20ec2240-c368-4740-8184-fa9d4668607e"/>
+				<textFieldExpression><![CDATA[$F{transfer}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="310" y="10" width="100" height="20" uuid="059ac1aa-3f4b-43b1-9bc0-9667d7c1438d"/>
+				<textFieldExpression><![CDATA[$F{namePart}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="460" y="10" width="100" height="20" uuid="f3d866c3-3c46-4b19-9b48-55c152bf00d1"/>
+				<textFieldExpression><![CDATA[$F{nameCategory}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="87" splitType="Stretch">
+			<staticText>
+				<reportElement x="-5" y="10" width="100" height="20" uuid="f55317dc-20bf-49cd-9e60-8681deef77a4"/>
+				<text><![CDATA[Кол-во слов:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="-5" y="30" width="100" height="30" uuid="276a7bc0-bc63-4238-b965-3271c3a6b2ae"/>
+				<textFieldExpression><![CDATA[$V{COLUMN_COUNT}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

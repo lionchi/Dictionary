@@ -1,5 +1,6 @@
 package hibernate.derictories;
 
+import hibernate.IModel;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -12,7 +13,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "maintable", schema = "dictionary")
-public class MaintableEntity {
+public class MaintableEntity implements IModel {
     private int idmaintable;
     private String word;
     private String transfer;

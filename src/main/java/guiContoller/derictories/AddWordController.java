@@ -3,6 +3,7 @@ package guiContoller.derictories;
 import guiContoller.IController;
 import guiContoller.MainController;
 import hibernate.HibernateSessionFactory;
+import hibernate.IModel;
 import hibernate.derictories.CategoryEntity;
 import hibernate.derictories.MaintableEntity;
 import hibernate.derictories.PartspeechEntity;
@@ -16,6 +17,7 @@ import javafx.stage.Stage;
 import org.hibernate.Session;
 
 import java.io.IOException;
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -39,14 +41,14 @@ public class AddWordController implements IController {
 
     private void comboboxConfiguration() {
         Session session = HibernateSessionFactory.getSession();
-        List<PartspeechEntity> list = session.createQuery("from PartspeechEntity ", PartspeechEntity.class)
+        List<? extends IModel> list = session.createQuery("from PartspeechEntity", PartspeechEntity.class)
                 .getResultList();
-        partSpeechModels.addAll(list);
+        partSpeechModels.addAll((Collection<? extends PartspeechEntity>) list);
         partOfSpeechs.setItems(partSpeechModels);
-
-        List<CategoryEntity> newList = session.createQuery("from CategoryEntity ", CategoryEntity.class)
+        list.clear();
+        list = session.createQuery("from CategoryEntity ", CategoryEntity.class)
                 .getResultList();
-        categoryModels.addAll(newList);
+        categoryModels.addAll((Collection<? extends CategoryEntity>) list);
         categorys.setItems(categoryModels);
         session.close();
     }

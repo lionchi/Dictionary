@@ -17,18 +17,21 @@ import java.util.List;
 public class TestController implements IController {
 
     @FXML
-    Button next;
+    private Button next;
     @FXML
-    ProgressBar pb = new ProgressBar(0);
-    DoubleProperty progress = new SimpleDoubleProperty(0.0);
+    private ProgressBar pb = new ProgressBar(0);
+
+    private DoubleProperty progress = new SimpleDoubleProperty(0.0);
 
     @FXML
-    public void onNext(){
+    private void initialize() throws IOException {
         pb.progressProperty().bind(progress);
-        progress.setValue(progress.getValue()+0.2);
     }
 
-
+    @FXML
+    private void OnNext() {
+        progress.setValue(progress.getValue() + 0.2);
+    }
 
 
 }
