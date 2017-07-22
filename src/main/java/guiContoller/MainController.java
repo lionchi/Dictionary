@@ -226,13 +226,15 @@ public class MainController implements IController {
 
     private void testClick() {
         Stage popUpStage = new Stage(StageStyle.UTILITY);
-        GuiForm<AnchorPane, TestController> form = new GuiForm<>("test.fxml");
+        GuiForm<AnchorPane, TestChoiseController> form = new GuiForm<>("test_choice.fxml");
         AnchorPane pane = form.getParent();
+        TestChoiseController choiseController = form.getController();
         popUpStage.initModality(Modality.WINDOW_MODAL);
         popUpStage.initOwner(mainTable.getScene().getWindow());
-        popUpStage.setTitle("Тест");
+        popUpStage.setTitle("Выбор теста");
         Scene scene = new Scene(pane);
         popUpStage.setScene(scene);
+        choiseController.setThisStage(popUpStage);
         popUpStage.showAndWait();
     }
 
